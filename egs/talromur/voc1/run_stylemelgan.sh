@@ -14,7 +14,7 @@ n_gpus=1       # number of gpus in training
 n_jobs=4       # number of parallel jobs in feature extraction
 
 # NOTE(kan-bayashi): renamed to conf to avoid conflict in parse_options.sh
-conf=conf/parallel_wavegan.v3.yaml
+conf=conf/style_melgan.v1.yaml
 
 # directory path setting
 download_dir=downloads # direcotry including wavfiles (MODIFY BY YOURSELF)
@@ -51,6 +51,7 @@ checkpoint="" # checkpoint path to be used for decoding
 train_set="train_nodev" # name of training data directory
 dev_set="dev"           # name of development data direcotry
 eval_set="eval"         # name of evaluation data direcotry
+
 
 set -euo pipefail
 
@@ -140,6 +141,8 @@ if [ -z "${tag}" ]; then
 else
     expdir="exp/${train_set}_${tag}"
 fi
+
+
 if [ "${stage}" -le 2 ] && [ "${stop_stage}" -ge 2 ]; then
     echo "Stage 2: Network training"
     [ ! -e "${expdir}" ] && mkdir -p "${expdir}"

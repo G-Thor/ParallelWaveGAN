@@ -14,7 +14,7 @@ n_gpus=1       # number of gpus in training
 n_jobs=4       # number of parallel jobs in feature extraction
 
 # NOTE(kan-bayashi): renamed to conf to avoid conflict in parse_options.sh
-conf=conf/parallel_wavegan.v3.yaml
+conf=conf/multi_band_melgan.v2.yaml
 
 # directory path setting
 download_dir=downloads # direcotry including wavfiles (MODIFY BY YOURSELF)
@@ -35,7 +35,7 @@ dumpdir=dump # directory to dump features
 
 # training related setting
 tag=""     # tag for directory to save model
-resume=""  # checkpoint path to resume training
+resume="exp/train_nodev_multi_band_melgan.v2/checkpoint-201704steps.pkl"  # checkpoint path to resume training
            # (e.g. <path>/<to>/checkpoint-10000steps.pkl)
 pretrain="" # checkpoint path to load pretrained parameters
             # (e.g. ../../jsut/<path>/<to>/checkpoint-400000steps.pkl)
